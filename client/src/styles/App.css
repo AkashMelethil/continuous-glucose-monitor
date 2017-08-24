@@ -6,7 +6,7 @@ html, body {
   background: #efefef;
 }
 
-.container {
+.dashboard-container {
     display: flex;
     flex-flow: column wrap;
     justify-content: flex-start;
@@ -55,6 +55,7 @@ html, body {
 
 .chart-title h1 {
     font-size: 1.5em;
+    margin-bottom: 5px;
 }
 
 .chart-data-age {
@@ -104,4 +105,49 @@ html, body {
 
 .chart-body svg {
     overflow: visible;
+}
+
+.auth-container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+/* Auth styles */
+.auth-box {
+    color: #333;
+    border-radius: 4px;
+    background: radial-gradient(#ffffff, #fafafa);
+    box-shadow: #aaa 0px 1px 2px;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-links {
+    display: flex;
+    flex-flow: row nowrap;
+    list-style-type: none;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+.auth-links li {
+    padding: 1em;
+    flex-grow: 1;
+    background: #eeeeee;
+}
+
+.auth-links li a {
+    text-decoration: none;
+}
+
+.auth-links li:last-of-type {
+    padding-left: 0;
+}
+
+.auth-links li.selected {
+    background: #5F6473;
+    color: #ffffff;
 }

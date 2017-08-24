@@ -1,0 +1,58 @@
+body {
+    font-family: sans-serif;  
+  }
+  
+  .select-hidden {
+    display: none;
+  }
+  
+  .select {
+    display: inline-block;
+    position: relative;
+    font-size: 0.75em;
+    border: 1px solid white;
+    border-radius: 1em;
+    color: #ffffff;
+    text-align: center;
+    width: 8.3em;
+  }
+  
+  .select.select-active > .selected-item{
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .selected-item {
+    border-radius: 1em;
+    background: #84677d;
+    cursor: pointer;
+    padding: 0.4em 0.5em;
+  }
+  
+  .selected-item .selected-value {
+    display: inline-block;
+  }
+  
+  .select-options {
+    position: absolute;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background: #84677d;
+    border-radius: 0 0 1em 1em;
+    padding: 0.2em 0.4em;
+  }
+  
+  .select-option {
+    border-radius: 1em;
+    cursor: pointer;
+    padding: 0.2em 0.8em;
+  }
+  
+  .select-option:last-of-type {
+    margin-bottom: 0.2em;
+  }
+  
+  .select-option:hover {
+    background: #694861;
+  }

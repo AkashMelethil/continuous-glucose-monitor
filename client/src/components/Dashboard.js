@@ -1,10 +1,31 @@
 import React from 'react'
 
 import Chart from './Chart'
+import Dropdown from './Dropdown'
+import Select from './Select'
 
 function Dashboard() {
+    const options = [
+        {
+            key: '1',
+            value: 'Past 12h'
+        },
+        {
+            key: '2',
+            value: 'Past day'
+        },
+        {
+            key: '3',
+            value: 'Past week'
+        },
+        {
+            key: '4',
+            value: 'Past 4 weeks'
+        },
+    ];
+
     return (
-        <div className="container">
+        <div className="dashboard-container">
             <div className="settings-interface">
                 <span className="fa fa-cog fa-fw fa-lg"></span>
                 <span className="fa fa-user fa-fw fa-lg"></span>
@@ -13,10 +34,7 @@ function Dashboard() {
                 <div className="chart-head">
                     <div className="chart-title">
                         <h1>Daniel's Glucose Monitor</h1>
-                        <div className="chart-data-age">
-                            <span className="chart-data-age-value">Past 12h</span>
-                            <span className="fa fa-angle-down fa-fw"></span>
-                        </div>
+                        <Select options={options}/>
                     </div>
                     <div className="chart-latest-info">
                         <div className="chart-latest-data">54.5 mg/dL</div>

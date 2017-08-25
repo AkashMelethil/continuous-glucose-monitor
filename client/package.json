@@ -22,6 +22,7 @@
         "d3-format": "^1.2.0",
         "d3-time-format": "^2.0.5",
         "react": "^15.6.1",
+        "react-apollo": "^1.4.15",
         "react-dom": "^15.6.1",
         "react-router-dom": "^4.2.0"
     },

@@ -5,7 +5,7 @@ import Select from './Select'
 import Popover from './Popover'
 import SettingsInterface from './SettingsInterface'
 
-function Dashboard() {
+function Dashboard({}) {
     const options = [
         {
             key: '1',
@@ -54,7 +54,7 @@ function Dashboard() {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
  export default Dashboard;

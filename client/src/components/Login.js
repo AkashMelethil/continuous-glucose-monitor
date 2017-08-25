@@ -1,9 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import {
+    Link,
+    Redirect
+} from 'react-router-dom'
 
 
-function Login() {
-    return (
+function Login({ location, isAuthenticated, setIsAuthenticated }) {
+    function handleLogin() {
+        setIsAuthenticated(true)
+    }
+
+    return isAuthenticated? (<Redirect to={{ pathname: "/", state: { from: location } }}/>)
+    :
+    (
         <div className="login-container">
             <div className="input">
                 <label className="fa fa-at fa-fw" aria-hidden="true"></label>
@@ -18,7 +27,7 @@ function Login() {
                 {/*<a className="forgot-link">Forgot password?</a>*/}
             </div>
             <div className="button-container">
-                <button className="button">Login</button>
+                <button onClick={handleLogin} className="button">Login</button>
             </div>
         </div>
     );

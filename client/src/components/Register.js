@@ -1,7 +1,17 @@
 import React from 'react'
+import {
+    Link,
+    Redirect
+} from 'react-router-dom'
 
-function Register() {
-    return (
+function Register({ location, isAuthenticated, setIsAuthenticated }) {
+    function handleRegistration() {
+        setIsAuthenticated(true)
+    }
+
+    return isAuthenticated? (<Redirect to={{ pathname: "/", state: { from: location } }}/>)
+    :
+    (
         <div className="register-container">
             <div className="input">
                 <label className="fa fa-user fa-fw" aria-hidden="true"></label>
@@ -16,7 +26,7 @@ function Register() {
                 <input type="password" placeholder="Choose a password" />
             </div>
             <div className="button-container">
-                <button className="button">Sign up</button>
+                <button onClick={handleRegistration} className="button">Sign up</button>
             </div>
         </div>
     );

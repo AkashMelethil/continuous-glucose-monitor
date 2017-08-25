@@ -7,7 +7,7 @@ import {
 import '../styles/App.css'
 import Dashboard from './Dashboard'
 import Authenticate from './Authenticate'
-import PrivateRoute from './PrivateRoute'
+import ConditionalRedirectRoute from './ConditionalRedirectRoute'
 
 class App extends Component {
     constructor(props) {
@@ -31,16 +31,23 @@ class App extends Component {
         return (
             <Router>
                 <div>
-                    <PrivateRoute exact path="/"
+                    <ConditionalRedirectRoute exact path="/"
                         redirectPathname="/auth"
                         component={Dashboard}
-                        isAuthenticated={this.state.isAuthenticated}
-                        setIsAuthenticated={this.setIsAuthenticated}
+                        condition={this.state.isAuthenticated}
+                        passProps={{
+                            isAuthenticated: this.state.isAuthenticated,
+                            setIsAuthenticated: this.setIsAuthenticated
+                        }}
                     />
-                    <Route path="/auth" render={routeProps => <Authenticate 
-                        {...routeProps}
-                        isAuthenticated={this.state.isAuthenticated}
-                        setIsAuthenticated={this.setIsAuthenticated}/>}
+                    <ConditionalRedirectRoute path="/auth"
+                        redirectPathname="/"
+                        component={Authenticate}
+                        condition={!this.state.isAuthenticated}
+                        passProps={{
+                            isAuthenticated: this.state.isAuthenticated,
+                            setIsAuthenticated: this.setIsAuthenticated
+                        }}
                     />
                 </div>
             </Router>

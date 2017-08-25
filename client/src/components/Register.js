@@ -9,9 +9,7 @@ function Register({ location, isAuthenticated, setIsAuthenticated }) {
         setIsAuthenticated(true)
     }
 
-    return isAuthenticated? (<Redirect to={{ pathname: "/", state: { from: location } }}/>)
-    :
-    (
+    return (
         <div className="register-container">
             <div className="input">
                 <label className="fa fa-user fa-fw" aria-hidden="true"></label>

@@ -5,7 +5,7 @@ import Select from './Select'
 import Popover from './Popover'
 import SettingsInterface from './SettingsInterface'
 
-function Dashboard({}) {
+function Dashboard({ setIsAuthenticated }) {
     const options = [
         {
             key: '1',
@@ -25,13 +25,17 @@ function Dashboard({}) {
         },
     ];
 
+    function handleClick() {
+        setIsAuthenticated(false)
+    }
+
     return (
         <div className="dashboard-container">
             <SettingsInterface/>
             <div className="chart">
                 <div className="chart-head">
                     <div className="chart-title">
-                        <h1>Daniel's Glucose Monitor</h1>
+                        <h1 onClick={handleClick}>Daniel's Glucose Monitor</h1>
                         <Select options={options}/>
                     </div>
                     <div className="chart-latest-info">

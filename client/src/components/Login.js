@@ -10,9 +10,7 @@ function Login({ location, isAuthenticated, setIsAuthenticated }) {
         setIsAuthenticated(true)
     }
 
-    return isAuthenticated? (<Redirect to={{ pathname: "/", state: { from: location } }}/>)
-    :
-    (
+    return (
         <div className="login-container">
             <div className="input">
                 <label className="fa fa-at fa-fw" aria-hidden="true"></label>

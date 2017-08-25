@@ -4,18 +4,19 @@ import {
     Redirect,
 } from 'react-router-dom'
 
-function PrivateRoute({ 
+function ConditionalRedirectRoute({ 
     component: Component, 
-    isAuthenticated: isAuthenticated, 
-    redirectPathname: pathname, 
+    condition, 
+    redirectPathname: pathname,
+    passProps,
     ...rest }) {
     return (
         <Route {...rest} render={props => (
-            isAuthenticated ?
-            (<Component {...props} />) :
+            condition?
+            (<Component {...{...props, ...passProps}} />) :
             (<Redirect to={{ pathname: pathname, state: { from: props.location } }} />)
         )}/>
     );
 }
 
-  export default PrivateRoute
+export default ConditionalRedirectRoute

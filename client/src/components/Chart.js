@@ -14,7 +14,7 @@ import { LinearGradient } from '@vx/gradient'
 import { CHART_WIDTH_RATIO, CHART_HEIGHT_RATIO } from '../constants'
 import HorizontalLine from './HorizontalLine'
 import formatDate from '../utils/formatDate'
-
+import '../styles/Chart.css'
 
 function Chart({ parentWidth, parentHeight, screenWidth, screenHeight, margin}) {
     const width = screenWidth * CHART_WIDTH_RATIO

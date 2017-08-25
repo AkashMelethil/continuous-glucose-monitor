@@ -1,8 +1,9 @@
 import React from 'react'
 
 import Chart from './Chart'
-import Dropdown from './Dropdown'
 import Select from './Select'
+import Popover from './Popover'
+import SettingsInterface from './SettingsInterface'
 
 function Dashboard() {
     const options = [
@@ -26,10 +27,7 @@ function Dashboard() {
 
     return (
         <div className="dashboard-container">
-            <div className="settings-interface">
-                <span className="fa fa-cog fa-fw fa-lg"></span>
-                <span className="fa fa-user fa-fw fa-lg"></span>
-            </div>
+            <SettingsInterface/>
             <div className="chart">
                 <div className="chart-head">
                     <div className="chart-title">

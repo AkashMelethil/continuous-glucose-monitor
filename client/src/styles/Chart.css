@@ -1,0 +1,79 @@
+.chart {
+    color: #333;
+    border-radius: 4px;
+    background: radial-gradient(#ffffff, #fafafa);
+    box-shadow: #aaa 0px 1px 2px;
+    display: flex;
+    flex-direction: column;
+    padding: 1%; /* width = 82% */
+    margin-top:0.6em;
+    padding-bottom: 2%;
+}
+
+.chart-head {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom: 0.2em;
+}
+
+.chart-title {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.chart-title h1 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.chart-data-age {
+    font-size: 0.75em;
+    border: 1px solid white;
+    border-radius: 1em;
+    padding: 2px 4px;
+    background: #84677d;
+    color: #fff;
+}
+
+.chart-data-age-value {
+    padding: 0 5px;
+}
+
+.chart-latest-info {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.chart-latest-data {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+.chart-latest-diff {
+    font-size: 0.75em;
+}
+
+.chart-latest-data-diff {
+    color: #63D6C5;
+}
+
+.chart-latest-time {
+    background: #E9CC5C;
+    border-radius: 1em;
+    padding: 2px 4px;
+    margin-left: 4px;
+    color: #FFFFFF; 
+}
+
+.chart-body {
+    margin: 1em 0;
+}
+
+.chart-body svg {
+    overflow: visible;
+}

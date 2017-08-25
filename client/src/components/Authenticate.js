@@ -5,6 +5,7 @@ import {
     Switch
 } from 'react-router-dom'
 
+import '../styles/Authenticate.css'
 import Login from './Login'
 import Register from './Register'
 import ForgotPassword from './ForgotPassword'
@@ -19,7 +20,7 @@ function Authenticate({ match }) {
                     <li><Link to={`${match.url}/register`}>Register</Link></li>
                 </ul>
                 <Switch>
-                    <Route path={`${match.url}/login`} component={Login} />
+                    <Route exact path={`(${match.url}|${match.url}/login)`} component={Login} />
                     <Route path={`${match.url}/register`} component={Register} />
                     <Route path={`${match.url}/forgot-password`} component={ForgotPassword} />
                 </Switch>

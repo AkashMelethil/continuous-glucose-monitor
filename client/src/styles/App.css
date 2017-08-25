@@ -6,6 +6,61 @@ html, body {
   background: #efefef;
 }
 
+
+.hidden {
+    display: none;
+  }
+  
+  a {
+    font-size: 0.7em;
+    color: #e3745d;
+    cursor: pointer;
+  }
+  
+  a:hover {
+    color: #d05b43;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  button {
+    background: #e3745d;
+    border: 0;
+    border-radius: 1em;
+    color: #ffffff;
+    outline: none;
+    cursor: pointer;
+    padding: 0.2em 1em 0.4em 1em;
+    margin-top: 1em;
+  }
+  
+  button:hover {
+    transform: scale(1.02);
+  }
+  
+  button:active {
+    transform: scale(.99);
+  }
+  
+  input[type=text], input[type=password] {
+    outline: none;
+    border: 0;
+    color: #555;
+    background: transparent;
+    min-width: 13em;
+  }
+  
+  .input {
+    border-bottom: 2px solid #aaa;
+    padding: 0.5em 0;
+    color: #888888;
+  }
+
 .dashboard-container {
     display: flex;
     flex-flow: column wrap;
@@ -25,49 +80,4 @@ html, body {
 .settings-interface .fa {
     padding: 1em 1em 0 0;
     cursor: pointer;
-}
-
-.auth-container {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-/* Auth styles */
-.auth-box {
-    color: #333;
-    border-radius: 4px;
-    background: radial-gradient(#ffffff, #fafafa);
-    box-shadow: #aaa 0px 1px 2px;
-    display: flex;
-    flex-direction: column;
-}
-
-.auth-links {
-    display: flex;
-    flex-flow: row nowrap;
-    list-style-type: none;
-    justify-content: space-between;
-    margin: 0;
-    padding: 0;
-}
-
-.auth-links li {
-    padding: 1em;
-    flex-grow: 1;
-    background: #eeeeee;
-}
-
-.auth-links li a {
-    text-decoration: none;
-}
-
-.auth-links li:last-of-type {
-    padding-left: 0;
-}
-
-.auth-links li.selected {
-    background: #5F6473;
-    color: #ffffff;
 }

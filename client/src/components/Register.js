@@ -4,9 +4,10 @@ import {
     Redirect
 } from 'react-router-dom'
 
-function Register({ location, isAuthenticated, setIsAuthenticated }) {
+function Register({ location, isAuthenticated, setIsAuthenticated, showError }) {
     function handleRegistration() {
-        setIsAuthenticated(true)
+        //setIsAuthenticated(true)
+        showError("Registration Error")
     }
 
     return (

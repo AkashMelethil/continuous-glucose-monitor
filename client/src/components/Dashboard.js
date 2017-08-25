@@ -5,7 +5,7 @@ import Select from './Select'
 import Popover from './Popover'
 import SettingsInterface from './SettingsInterface'
 
-function Dashboard({ setIsAuthenticated }) {
+function Dashboard({ setIsAuthenticated, showError }) {
     const options = [
         {
             key: '1',
@@ -26,7 +26,8 @@ function Dashboard({ setIsAuthenticated }) {
     ];
 
     function handleClick() {
-        setIsAuthenticated(false)
+        /*setIsAuthenticated(false)*/
+        showError("This is an error");
     }
 
     return (

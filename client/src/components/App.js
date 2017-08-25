@@ -14,10 +14,24 @@ class App extends Component {
         super(props)
 
         this.state = {
-            isAuthenticated: false
+            isAuthenticated: false,
+            errorValue: null
         }
 
         this.setIsAuthenticated = this.setIsAuthenticated.bind(this)
+        this.showError = this.showError.bind(this)
+    }
+
+    showError(errorValue) {
+        this.setState({
+            errorValue: errorValue
+        })
+
+        setTimeout(() => {
+            this.setState({
+                errorValue: null
+            })
+        }, 3500)
     }
 
     setIsAuthenticated(isAuthenticated) {
@@ -31,13 +45,17 @@ class App extends Component {
         return (
             <Router>
                 <div>
+                    {(this.state.errorValue !== null) && (<div className="notification">
+                        <span className="notification-value">{this.state.errorValue}</span>
+                    </div>)}
                     <ConditionalRedirectRoute exact path="/"
                         redirectPathname="/auth"
                         component={Dashboard}
                         condition={this.state.isAuthenticated}
                         passProps={{
                             isAuthenticated: this.state.isAuthenticated,
-                            setIsAuthenticated: this.setIsAuthenticated
+                            setIsAuthenticated: this.setIsAuthenticated,
+                            showError: this.showError
                         }}
                     />
                     <ConditionalRedirectRoute path="/auth"
@@ -46,7 +64,8 @@ class App extends Component {
                         condition={!this.state.isAuthenticated}
                         passProps={{
                             isAuthenticated: this.state.isAuthenticated,
-                            setIsAuthenticated: this.setIsAuthenticated
+                            setIsAuthenticated: this.setIsAuthenticated,
+                            showError: this.showError
                         }}
                     />
                 </div>

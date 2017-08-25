@@ -5,9 +5,10 @@ import {
 } from 'react-router-dom'
 
 
-function Login({ location, isAuthenticated, setIsAuthenticated }) {
+function Login({ location, isAuthenticated, setIsAuthenticated, showError }) {
     function handleLogin() {
-        setIsAuthenticated(true)
+        //setIsAuthenticated(true)
+        showError("Login Error")
     }
 
     return (

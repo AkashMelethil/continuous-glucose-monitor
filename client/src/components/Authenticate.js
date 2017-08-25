@@ -29,7 +29,7 @@ class Authenticate extends React.Component {
     }
 
     render() {
-        const { match, setIsAuthenticated, isAuthenticated } = this.props
+        const { match, setIsAuthenticated, isAuthenticated, showError } = this.props
         const { isLoginActive } = this.state
         return (
             <div className="auth-container">
@@ -46,12 +46,14 @@ class Authenticate extends React.Component {
                         <Route exact path={`(${match.url}|${match.url}/login)`} render={routeProps => <Login 
                             {...routeProps}
                             isAuthenticated={isAuthenticated}
-                            setIsAuthenticated={setIsAuthenticated}/>}
+                            setIsAuthenticated={setIsAuthenticated}
+                            showError={showError}/>}
                         />
                         <Route path={`${match.url}/register`} render={routeProps => <Register
                             {...routeProps}
                             isAuthenticated={isAuthenticated}
-                            setIsAuthenticated={setIsAuthenticated}/>}
+                            setIsAuthenticated={setIsAuthenticated}
+                            showError={showError}/>}
                         />
                         <Route path={`${match.url}/forgot-password`} component={ForgotPassword} />
                     </Switch>

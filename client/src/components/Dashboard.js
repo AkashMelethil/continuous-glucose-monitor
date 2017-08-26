@@ -1,11 +1,21 @@
 import React from 'react'
+import { graphql, gql } from 'react-apollo'
 
 import Chart from './Chart'
 import Select from './Select'
 import Popover from './Popover'
 import SettingsInterface from './SettingsInterface'
 
-function Dashboard({ setIsAuthenticated, showError }) {
+function Dashboard({ setIsAuthenticated, showError, allRecordsQuery }) {
+    console.log(allRecordsQuery);
+    /* Cannot update state in render */
+    /*if (allRecordsQuery && allRecordsQuery.loading) {
+        showError("Loading data...")
+    }
+    if (allRecordsQuery && allRecordsQuery.error) {
+        showError(allRecordsQuery.error)
+    }*/
+
     const options = [
         {
             key: '1',
@@ -62,4 +72,16 @@ function Dashboard({ setIsAuthenticated, showError }) {
     )
 }
 
- export default Dashboard;
+const ALL_RECORDS_QUERY = gql`
+query allRecordsQuery {
+    medtronicSensorRecords {
+        id
+        senseDateTime
+        calibrationFactor
+        unfilteredValue
+        isigValue
+    }
+}
+`
+export default graphql(ALL_RECORDS_QUERY, { name: 'allRecordsQuery' }) (Dashboard)
+

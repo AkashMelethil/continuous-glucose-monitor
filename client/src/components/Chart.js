@@ -1,5 +1,5 @@
 import React from 'react'
-import { withParentSize, withScreenSize } from '@vx/responsive'
+import { withScreenSize } from '@vx/responsive'
 import { genDateValue } from '@vx/mock-data'
 import { extent, max } from 'd3-array'
 import { scaleTime, scaleLinear } from '@vx/scale'
@@ -16,7 +16,7 @@ import HorizontalLine from './HorizontalLine'
 import formatDate from '../utils/formatDate'
 import '../styles/Chart.css'
 
-function Chart({ parentWidth, parentHeight, screenWidth, screenHeight, margin}) {
+function Chart({ screenWidth, screenHeight, margin }) {
     const width = screenWidth * CHART_WIDTH_RATIO
     const height = screenHeight * CHART_HEIGHT_RATIO
 
@@ -165,4 +165,4 @@ function Chart({ parentWidth, parentHeight, screenWidth, screenHeight, margin}) 
     )
 }
 
-export default withScreenSize(withParentSize(Chart))
+export default withScreenSize(Chart)

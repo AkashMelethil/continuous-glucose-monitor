@@ -1,13 +1,9 @@
 import React from 'react'
-import {
-    Link,
-    Redirect
-} from 'react-router-dom'
 
 function Register({ location, isAuthenticated, setIsAuthenticated, showError }) {
     function handleRegistration() {
-        //setIsAuthenticated(true)
-        showError("Registration Error")
+        setIsAuthenticated(true)
+        //showError("Registration Error")
     }
 
     return (

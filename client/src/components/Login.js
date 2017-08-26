@@ -1,14 +1,13 @@
 import React from 'react'
 import {
-    Link,
-    Redirect
+    Link
 } from 'react-router-dom'
 
 
 function Login({ location, isAuthenticated, setIsAuthenticated, showError }) {
     function handleLogin() {
-        //setIsAuthenticated(true)
-        showError("Login Error")
+        setIsAuthenticated(true)
+        //showError("Login Error")
     }
 
     return (

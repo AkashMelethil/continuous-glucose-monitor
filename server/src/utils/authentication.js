@@ -7,7 +7,6 @@ const HEADER_REGEX = /Bearer (.*)$/;
 
 async function authenticate({ headers: { authorization } }) {
     const tokenStr = authorization && HEADER_REGEX.exec(authorization)[1];
-    console.log(`Token String: ${tokenStr}`)
     if (!tokenStr) {
         return null
     }

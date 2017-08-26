@@ -5,6 +5,7 @@ import User from './models/user'
 import { generateJWTToken } from './utils/authentication'
 import ValidationError from './ValidationError'
 import AuthenticationError from './AuthenticationError'
+import sendEmail from './utils/sendEmail'
 
 const medtronicSensorRecords = [
     {
@@ -165,7 +166,7 @@ export const resolvers = {
                 token: generateJWTToken(user),
                 user: user
             }
-        }
+        },
     },
     User: {
         id: root => root._id || root.id,

@@ -25,6 +25,7 @@
     "graphql-tools": "^1.2.1",
     "jsonwebtoken": "^7.4.3",
     "mongoose": "^4.10.8",
+    "nodemailer": "^4.0.1",
     "validator": "^8.1.0"
   }
 }

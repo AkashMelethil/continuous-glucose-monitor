@@ -1,12 +1,15 @@
 import { GraphQLScalarType } from 'graphql'
 import validator from 'validator'
+import mongoose from 'mongoose'
 
 import User from './models/user'
+import MedtronicSensorRecord from './models/medtronicSensorRecord'
 import { generateJWTToken } from './utils/authentication'
 import ValidationError from './ValidationError'
 import AuthenticationError from './AuthenticationError'
 import sendEmail from './utils/sendEmail'
 
+/*
 const medtronicSensorRecords = [
     {
         "id": "fbc273db-5d56-4dba-82f8-a7f475e8f1bd",
@@ -64,7 +67,7 @@ const medtronicSensorRecords = [
         "unfilteredValue": 50.85524687493725,
         "isigValue": 87.88712460777072
     }
-]
+]*/
 
 export const resolvers = {
     Date: new GraphQLScalarType({
@@ -77,7 +80,7 @@ export const resolvers = {
             return value.getTime();
         },
         parseLiteral(ast) {
-            if (ast.kind === Kind.INT) {
+            if (ast.kind === 'IntValue') {
                 return parseInt(ast.value, 10);
             }
             return null;
@@ -91,10 +94,61 @@ export const resolvers = {
             }
             if (errors.length) throw new AuthenticationError(errors);
 
-            return medtronicSensorRecords
+            return new Promise((resolve, reject) => {
+                MedtronicSensorRecord.find({ postedBy: user._id }).exec((err, records) => {
+                    if (err) return reject(err)
+                    resolve(records)
+                })
+            })
         }
     },
     Mutation: {
+        createMedtronicSensorRecord: async (obj, {
+            senseDateTime,
+            unfilteredValue,
+            isigValue,
+            calibrationFactor,
+            units
+        }, { user }) => {
+            const errors = []
+            if (!user) {
+                errors.push({ key: 'authorization', message: 'The request does not have correct authentication.'})
+            }
+            if (errors.length) throw new AuthenticationError(errors);
+
+            const newRecord = new MedtronicSensorRecord({ 
+                senseDateTime, 
+                unfilteredValue, 
+                isigValue,
+                postedBy: user.id
+            })
+            newRecord.id = newRecord._id
+            if (calibrationFactor) newRecord.calibrationFactor = calibrationFactor
+            if (units) newRecord.units = units
+            //newRecord.postedBy = user
+
+            const savedRecord = await new Promise((resolve, reject) => {
+                newRecord.save((err) => {
+                    if (err) {
+                        reject(err)
+                    }
+                    else {
+                        resolve(newRecord)
+                    }
+                })
+            })
+
+            const resultRecord = {
+                id: savedRecord._id,
+                calibrationFactor: savedRecord.calibrationFactor,
+                senseDateTime: savedRecord.senseDateTime, 
+                unfilteredValue: savedRecord.unfilteredValue,
+                isigValue: savedRecord.isigValue,
+                units: savedRecord.units,
+                postedBy: user
+            }
+            return resultRecord
+        },
         createUser: async (obj, {firstName, email, password}, context) => {
             const errors = []
 
@@ -110,7 +164,7 @@ export const resolvers = {
             }
 
             const existingUser = await new Promise((resolve, reject) => {
-                User.findOne({ email: email }, (error, user) => {
+                User.findOne({ loginEmail: email }, (error, user) => {
                     if (error) {
                         return reject(error)
                     }
@@ -170,5 +224,19 @@ export const resolvers = {
     },
     User: {
         id: root => root._id || root.id,
+    },
+    MedtronicSensorRecord: {
+        id: root => root._id || root.id,
+        postedBy: async ({ postedBy }, data, context) => {
+            const user = await new Promise((resolve, reject) => {
+                User.findOne({ _id: postedBy }, (error, user) => {
+                    if (error) {
+                        return reject(error)
+                    }
+                    resolve(user)
+                })
+            })
+            return user
+        },
     }
 };

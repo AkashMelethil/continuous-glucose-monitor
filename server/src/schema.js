@@ -16,10 +16,11 @@ enum MEDTRONIC_SENSOR_UNITS {
 type MedtronicSensorRecord {
     id: ID!
     calibrationFactor: Float
-    senseDateTime: Int! #Date!
+    senseDateTime: Date!
     unfilteredValue: Float!
     isigValue: Float!
     units: MEDTRONIC_SENSOR_UNITS
+    postedBy: User!
 }
 
 type User {
@@ -41,6 +42,7 @@ type Query {
 type Mutation {
     createUser(firstName: String!, email: String!, password: String!): User
     signInUser(email: String!, password: String!): SignInData
+    createMedtronicSensorRecord(senseDateTime: Date!, unfilteredValue: Float!, isigValue: Float!, calibrationFactor: Float, units: MEDTRONIC_SENSOR_UNITS): MedtronicSensorRecord
 }
 `
 

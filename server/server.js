@@ -40,26 +40,11 @@ function start() {
 
         server.use('/graphiql', graphiqlExpress({
             endpointURL: '/graphql',
-            passHeader: `'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5YTEzMGM2NmI4Njc0YzU0YWEwYWYwMCIsImlhdCI6MTUwMzc0MTQzMiwiZXhwIjoxNTAzNzQ1MDMyfQ.tAacyYGbY3nW4Faw8Zz3DEWBGqrRSotBK594GKmavkc'`,
+            passHeader: `'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5YTFkOTQ2MjYyMWQyMzg2Njk0NzY1OCIsImlhdCI6MTUwMzc3OTIwOCwiZXhwIjoxNTAzNzk3MjA4fQ.txzXrsFIvXZ7UA9xScRIKJr549akXFY6WPxz-wtaK9o'`,
         }))
 
         server.listen(PORT, () => console.log(`GraphQL Server is now running on http://localhost:${PORT}`))
     });
-
-    /*
-    const buildOptions = async (req, res) => {
-        const user = await authenticate(req)
-        return {
-            context: {
-                dataloaders: buildDataloaders(mongo),
-                mongo,
-                user
-            },
-            formatError,
-            schema
-        }
-    }
-    */
 }
 
 start()

@@ -34,17 +34,9 @@ async function authenticate({ headers: { authorization } }) {
 }
 
 function generateJWTToken(user) {
-    const tokenStr = jwt.sign({
+    return jwt.sign({
         id: user._id
-    }, JWT_SECRET, { expiresIn: '1h' });
-
-    console.log(tokenStr)
-
-    jwt.verify(tokenStr, JWT_SECRET, function(err, decoded) {
-        console.log(decoded) // bar 
-      });
-
-      return tokenStr
+    }, JWT_SECRET, { expiresIn: '5h' });
 }
 
 export {authenticate, generateJWTToken}

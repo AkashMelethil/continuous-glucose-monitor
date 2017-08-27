@@ -37,14 +37,12 @@ type SignInData {
 
 type Query {
     medtronicSensorRecords: [MedtronicSensorRecord]
-    test: String!
 }
 
 type Mutation {
     createUser(firstName: String!, email: String!, password: String!): User
     signInUser(email: String!, password: String!): SignInData
     createMedtronicSensorRecord(senseDateTime: Date!, unfilteredValue: Float!, isigValue: Float!, calibrationFactor: Float, units: MEDTRONIC_SENSOR_UNITS): MedtronicSensorRecord
-    test: String!
 }
 `
 

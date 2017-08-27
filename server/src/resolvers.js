@@ -8,66 +8,7 @@ import { generateJWTToken } from './utils/authentication'
 import ValidationError from './ValidationError'
 import AuthenticationError from './AuthenticationError'
 import sendEmail from './utils/sendEmail'
-
-/*
-const medtronicSensorRecords = [
-    {
-        "id": "fbc273db-5d56-4dba-82f8-a7f475e8f1bd",
-        "senseDateTime": 10,
-        "calibrationFactor": 68.28690633484541,
-        "unfilteredValue": 84.99966675339098,
-        "isigValue": 37.582370040109666
-    },
-    {
-        "id": "faab61ea-985f-40c0-bcd9-b76558f0c85e",
-        "senseDateTime": 20,
-        "calibrationFactor": 95.15017669553961,
-        "unfilteredValue": 27.85524687493725,
-        "isigValue": 87.88712460777072
-    },
-    {
-        "id": "fbc273db-5d56-4dba-82f8-a7f475e8f1bf",
-        "senseDateTime": 30,
-        "calibrationFactor": 68.28690633484541,
-        "unfilteredValue": 34.99966675339098,
-        "isigValue": 37.582370040109666
-    },
-    {
-        "id": "faab61ea-985f-40c0-bcd9-b76558f0c85g",
-        "senseDateTime": 40,
-        "calibrationFactor": 95.15017669553961,
-        "unfilteredValue": 56.85524687493725,
-        "isigValue": 87.88712460777072
-    },
-    {
-        "id": "fbc273db-5d56-4dba-82f8-a7f475e8f1bh",
-        "senseDateTime": 50,
-        "calibrationFactor": 68.28690633484541,
-        "unfilteredValue": 73.99966675339098,
-        "isigValue": 37.582370040109666
-    },
-    {
-        "id": "faab61ea-985f-40c0-bcd9-b76558f0c85i",
-        "senseDateTime": 60,
-        "calibrationFactor": 95.15017669553961,
-        "unfilteredValue": 35.85524687493725,
-        "isigValue": 87.88712460777072
-    },
-    {
-        "id": "fbc273db-5d56-4dba-82f8-a7f475e8f1bj",
-        "senseDateTime": 70,
-        "calibrationFactor": 68.28690633484541,
-        "unfilteredValue": 81.99966675339098,
-        "isigValue": 37.582370040109666
-    },
-    {
-        "id": "faab61ea-985f-40c0-bcd9-b76558f0c85k",
-        "senseDateTime": 80,
-        "calibrationFactor": 9.15017669553961,
-        "unfilteredValue": 50.85524687493725,
-        "isigValue": 87.88712460777072
-    }
-]*/
+import { uploadEntry } from './nightscout'
 
 export const resolvers = {
     Date: new GraphQLScalarType({
@@ -145,8 +86,12 @@ export const resolvers = {
                 unfilteredValue: savedRecord.unfilteredValue,
                 isigValue: savedRecord.isigValue,
                 units: savedRecord.units,
-                postedBy: user
+                postedBy: user.id
             }
+
+            uploadEntry(resultRecord)
+
+            resultRecord.postedBy = user
             return resultRecord
         },
         createUser: async (obj, {firstName, email, password}, context) => {

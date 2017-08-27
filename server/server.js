@@ -12,6 +12,8 @@ import { schema } from './src/schema'
 import { PORT, MONGO_URL } from './constants'
 import { authenticate } from './src/utils/authentication'
 
+import { uploadEntry } from './src/nightscout'
+
 function start() {
     mongoose.connect(MONGO_URL)
     const db = mongoose.connection;
@@ -50,7 +52,7 @@ function start() {
             res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
         });
 
-        server.listen(PORT, () => console.log(`GraphQL Server is now running on http://localhost:${PORT}`))
+        server.listen(PORT, () => console.log(`GraphQL Server is now running on post: ${PORT}.`))
     });
 }
 

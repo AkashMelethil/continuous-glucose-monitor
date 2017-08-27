@@ -8,9 +8,6 @@ client/coverage
 # production
 client/build
 
-# secret
-server/src/secret.js
-
 # misc
 .DS_Store
 .env.local

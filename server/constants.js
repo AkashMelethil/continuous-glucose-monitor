@@ -1,4 +1,4 @@
-const MONGO_URL = 'mongodb://localhost:27017/Test'
+const MONGO_URL = process.env.MONGODB_URI || 'mongodb://localhost:27017/Test'
 const PORT = process.env.PORT || 4000
 
 export {

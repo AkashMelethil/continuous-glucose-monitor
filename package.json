@@ -1,0 +1,12 @@
+{
+    "name": "continuous-glucose-monitor",
+    "version": "1.0.0",
+    "description": "The purpose of this application is to log and display glucose readings from a Medtronic device as well as to notify the user via email and SMS about potentially dangerous values.",
+    "main": "index.js",
+    "scripts": {
+        "start": "cd server && npm start",
+        "postinstall": "cd server && npm install"
+    },
+    "author": "",
+    "license": "ISC"
+}

@@ -8,18 +8,20 @@ class AppSettings extends React.Component {
     render() {
         const { units } = this.props
         return (
-            <div className="app-settings">
-                <div className="settings-section">
-                    <span className="settings-section-title">Units</span>
+            <div classNameName="profile-settings">
+                <div className="popover-section">
+                    <div className="popover-section-title">Units</div>
+                    <div className="popover-section-element">Change units here.</div>
                 </div>
-                <div className="settings-section">
-                    <span className="settings-section-title">Date Format</span>
-                </div>
-                <div className="settings-section">
-                    <span className="settings-section-title">Alarm</span>
-                </div>
-                <div className="settings-section">
-                    <span className="settings-section-title">Time Zone</span>
+                <div className="popover-section">
+                    <div className="popover-section-title">
+                        <span>Threshholds</span>
+                        <span className="fa fa-plus fa-fw add"></span>
+                    </div>
+                    <div className="popover-section-element">
+                        <span>Value | Rate</span>
+                        <span className="fa fa-minus fa-fw remove"></span>
+                    </div>
                 </div>
             </div>
         )

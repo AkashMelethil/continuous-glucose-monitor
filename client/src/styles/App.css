@@ -20,6 +20,14 @@ a:hover {
     color: #d05b43;
 }
 
+.add {
+    color: #63D6C5;
+}
+
+.remove {
+    color: #e3745d;
+}
+
 .button-container {
     display: flex;
     flex-flow: column nowrap;

@@ -8,21 +8,31 @@ class ProfileSettings extends React.Component {
     render() {
         const { username } = this.props
         return (
-            <div className="profile-settings">
-                <div className="settings-section">
-                    <span className="settings-section-title">username</span>
+            <div classNameName="profile-settings">
+                <div className="popover-section">
+                    <div className="popover-section-title">Profile</div>
+                    <div className="popover-section-element">First Name: Daniel</div>
+                    <div className="popover-section-element">Login Email: test@gmail.com</div>
+                    <div className="popover-section-element">
+                        <a className="forgot-link">Reset Password</a>
+                    </div>
                 </div>
-                <div className="settings-section">
-                    <span className="settings-section-title">password</span>
+                <div className="popover-section">
+                    <div className="popover-section-title">
+                        <span>Notification Emails</span>
+                        <span className="fa fa-plus fa-fw add"></span>
+                    </div>
+                    <div className="popover-section-element">
+                        <span>test1@gmail.com</span>
+                        <span className="fa fa-minus fa-fw remove"></span>
+                    </div>
+                    <div className="popover-section-element">
+                        <span>test2@gmail.com</span>
+                        <span className="fa fa-minus fa-fw remove"></span>
+                    </div>
                 </div>
-                <div className="settings-section">
-                    <span className="settings-section-title">emails</span>
-                </div>
-                <div className="settings-section">
-                    <span className="settings-section-title">sms numbers</span>
-                </div>
-                <div className="settings-section">
-                    <span className="settings-section-title">logout</span>
+                <div className="button-container">
+                    <button className="button">Logout</button>
                 </div>
             </div>
         )

@@ -38,7 +38,6 @@ class App extends Component {
     }
 
     setIsAuthenticated({isAuthenticated, userData }) {
-        console.log(`Called with a value of ${isAuthenticated}`)
         this.setState({
             isAuthenticated: isAuthenticated,
             userData: userData

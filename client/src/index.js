@@ -12,7 +12,7 @@ import './styles/index.css'
 import { loadUserToken } from './utils/localStorage'
 
 const networkInterface = createNetworkInterface({
-    uri: 'http://localhost:4000/graphql'
+    uri: '/graphql'
 })
 
 networkInterface.use([{

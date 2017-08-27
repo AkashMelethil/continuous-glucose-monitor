@@ -37,12 +37,14 @@ class SettingsInterface  extends React.Component {
                 <Popover 
                     iconElement={<span onClick={this.toggleAppSettings} className="fa fa-cog fa-fw fa-lg"></span>}
                     isActive={isAppSettingsActive}
+                    arrowClass="app-arrow"
                 >
                     <AppSettings/>
                 </Popover>
                 <Popover 
                     iconElement={<span onClick={this.toggleProfileSettings} className="fa fa-user fa-fw fa-lg"></span>}
                     isActive={isProfileSettingsActive}
+                    arrowClass="profile-arrow"
                 >
                     <ProfileSettings/>
                 </Popover>

@@ -42,7 +42,7 @@ function Dashboard({ setIsAuthenticated, showError, allRecordsQuery, userData}) 
 
     return (
         <div className="dashboard-container">
-            <SettingsInterface/>
+            <SettingsInterface setIsAuthenticated={setIsAuthenticated}/>
             <div className="chart">
                 <div className="chart-head">
                     <div className="chart-title">

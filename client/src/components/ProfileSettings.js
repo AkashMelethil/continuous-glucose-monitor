@@ -3,12 +3,18 @@ import React from 'react'
 class ProfileSettings extends React.Component {
     constructor(props) {
         super(props)
+
+        this.handleLogout = this.handleLogout.bind(this)
+    }
+
+    handleLogout() {
+        this.props.setIsAuthenticated({isAuthenticated: false, userData: null})
     }
 
     render() {
         const { username } = this.props
         return (
-            <div classNameName="profile-settings">
+            <div className="profile-settings">
                 <div className="popover-section">
                     <div className="popover-section-title">Profile</div>
                     <div className="popover-section-element">First Name: Daniel</div>
@@ -32,7 +38,7 @@ class ProfileSettings extends React.Component {
                     </div>
                 </div>
                 <div className="button-container">
-                    <button className="button">Logout</button>
+                    <button onClick={this.handleLogout} className="button">Logout</button>
                 </div>
             </div>
         )

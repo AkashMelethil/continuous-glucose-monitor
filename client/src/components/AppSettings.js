@@ -8,7 +8,7 @@ class AppSettings extends React.Component {
     render() {
         const { units } = this.props
         return (
-            <div classNameName="profile-settings">
+            <div className="app-settings">
                 <div className="popover-section">
                     <div className="popover-section-title">Units</div>
                     <div className="popover-section-element">Change units here.</div>

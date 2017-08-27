@@ -32,6 +32,7 @@ class SettingsInterface  extends React.Component {
 
     render() {
         const { isAppSettingsActive, isProfileSettingsActive } = this.state
+        const { setIsAuthenticated } = this.props
         return(
             <div className="settings-interface">
                 <Popover 
@@ -46,7 +47,7 @@ class SettingsInterface  extends React.Component {
                     isActive={isProfileSettingsActive}
                     arrowClass="profile-arrow"
                 >
-                    <ProfileSettings/>
+                    <ProfileSettings setIsAuthenticated={setIsAuthenticated}/>
                 </Popover>
             </div>
         )

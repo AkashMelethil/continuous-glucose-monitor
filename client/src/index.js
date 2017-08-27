@@ -12,7 +12,7 @@ import './styles/index.css'
 import { AUTH_TOKEN } from './constants'
 
 const networkInterface = createNetworkInterface({
-    uri: 'http://localhost:4000/graphql'
+    uri: '/graphql'
 })
 
 networkInterface.use([{

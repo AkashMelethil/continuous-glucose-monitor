@@ -4,7 +4,7 @@
     "description": "The purpose of this application is to log and display glucose readings from a Medtronic device as well as to notify the user via email and SMS about potentially dangerous values.",
     "main": "index.js",
     "scripts": {
-        "start": "cd server && npm start",
+        "start": "cd server && npm run heroku_start",
         "postinstall": "cd server && npm install"
     },
     "author": "",

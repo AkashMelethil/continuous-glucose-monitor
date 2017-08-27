@@ -9,7 +9,7 @@ import {
 } from 'react-apollo';
 
 import './styles/index.css'
-import { AUTH_TOKEN } from './constants'
+import { loadUserToken } from './utils/localStorage'
 
 const networkInterface = createNetworkInterface({
     uri: '/graphql'
@@ -17,7 +17,7 @@ const networkInterface = createNetworkInterface({
 
 networkInterface.use([{
     applyMiddleware(req, next) {
-        const token = localStorage.getItem(AUTH_TOKEN)
+        const token = loadUserToken()
         if (!req.options.headers) {
             req.options.headers = {}
         }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, gql } from 'react-apollo'
 
-import { AUTH_TOKEN } from '../constants'
+import { saveUserToken } from '../utils/localStorage'
 
 class Register extends React.Component {
     constructor(props) {
@@ -12,16 +12,14 @@ class Register extends React.Component {
             email: '',
             password: '',
         }
-    }
 
-    saveUserToken(token) {
-        localStorage.setItem(AUTH_TOKEN, token)
+        this.handleRegistration = this.handleRegistration.bind(this)
     }
 
     async handleRegistration() {
-        /*const { name, email, password } = this.state;
+        const { name, email, password } = this.state
         try {
-            const result = await this.props.signInUserMutation({
+            const result = await this.props.createUserMutation({
                 variables: {
                     name,
                     email,
@@ -30,12 +28,12 @@ class Register extends React.Component {
             })
             console.log(result)
             const { token, user } = result.data.signInUser
-            this.saveUserToken(token)
+            saveUserToken(token)
             this.props.setIsAuthenticated({ isAuthenticated: true, userData: user })
         }
         catch (err) {
             console.error(err)
-        }*/
+        }
     }
 
     render() {

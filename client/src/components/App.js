@@ -15,7 +15,10 @@ class App extends Component {
 
         this.state = {
             isAuthenticated: false,
-            errorValue: null
+            errorValue: null,
+            userData: {
+                firstName: ''
+            }
         }
 
         this.setIsAuthenticated = this.setIsAuthenticated.bind(this)
@@ -34,10 +37,11 @@ class App extends Component {
         }, 3500)
     }
 
-    setIsAuthenticated(isAuthenticated) {
+    setIsAuthenticated({isAuthenticated, userData }) {
         console.log(`Called with a value of ${isAuthenticated}`)
         this.setState({
-            isAuthenticated: isAuthenticated
+            isAuthenticated: isAuthenticated,
+            userData: userData
         })
     }
 
@@ -55,7 +59,8 @@ class App extends Component {
                         passProps={{
                             isAuthenticated: this.state.isAuthenticated,
                             setIsAuthenticated: this.setIsAuthenticated,
-                            showError: this.showError
+                            showError: this.showError,
+                            userData: this.state.userData
                         }}
                     />
                     <ConditionalRedirectRoute path="/auth"

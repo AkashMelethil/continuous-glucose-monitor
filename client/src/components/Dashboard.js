@@ -6,7 +6,7 @@ import Select from './Select'
 import Popover from './Popover'
 import SettingsInterface from './SettingsInterface'
 
-function Dashboard({ setIsAuthenticated, showError, allRecordsQuery }) {
+function Dashboard({ setIsAuthenticated, showError, allRecordsQuery, userData}) {
     console.log(allRecordsQuery);
     /* Cannot update state in render */
     /*if (allRecordsQuery && allRecordsQuery.loading) {
@@ -46,7 +46,7 @@ function Dashboard({ setIsAuthenticated, showError, allRecordsQuery }) {
             <div className="chart">
                 <div className="chart-head">
                     <div className="chart-title">
-                        <h1 onClick={handleClick}>Daniel's Glucose Monitor</h1>
+                        <h1 onClick={handleClick}>{userData.firstName}'s Glucose Monitor</h1>
                         <Select options={options}/>
                     </div>
                     <div className="chart-latest-info">

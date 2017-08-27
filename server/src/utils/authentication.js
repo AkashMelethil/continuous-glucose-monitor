@@ -6,12 +6,12 @@ import { JWT_SECRET } from '../secret'
 const HEADER_REGEX = /Bearer (.*)$/;
 
 async function authenticate({ headers: { authorization } }) {
-    const tokenStr = authorization && HEADER_REGEX.exec(authorization)[1];
-    if (!tokenStr) {
-        return null
-    }
-
     try {
+        const tokenStr = authorization && HEADER_REGEX.exec(authorization)[1];
+        if (!tokenStr) {
+            return null
+        }
+
         const token = jwt.verify(tokenStr, JWT_SECRET)
 
         const user = await new Promise((resolve, reject) => {

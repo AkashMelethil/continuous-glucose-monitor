@@ -1,37 +1,41 @@
 {
-    "name": "client",
-    "version": "0.1.0",
-    "private": true,
-    "devDependencies": {
-        "react-scripts": "1.0.11"
-    },
-    "dependencies": {
-        "@vx/axis": "0.0.134",
-        "@vx/event": "0.0.127",
-        "@vx/glyph": "0.0.136",
-        "@vx/gradient": "0.0.129",
-        "@vx/grid": "0.0.131",
-        "@vx/group": "0.0.127",
-        "@vx/mock-data": "0.0.127",
-        "@vx/pattern": "0.0.127",
-        "@vx/responsive": "0.0.127",
-        "@vx/scale": "0.0.127",
-        "@vx/shape": "0.0.131",
-        "@vx/tooltip": "0.0.134",
-        "d3-array": "^1.2.0",
-        "d3-format": "^1.2.0",
-        "d3-time-format": "^2.0.5",
-        "graphql": "^0.11.0",
-        "graphql-tools": "^1.2.1",
-        "react": "^15.6.1",
-        "react-apollo": "^1.4.15",
-        "react-dom": "^15.6.1",
-        "react-router-dom": "^4.2.0"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject"
-    }
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "1.0.11"
+  },
+  "dependencies": {
+    "@vx/axis": "0.0.134",
+    "@vx/event": "0.0.127",
+    "@vx/glyph": "0.0.136",
+    "@vx/gradient": "0.0.129",
+    "@vx/grid": "0.0.131",
+    "@vx/group": "0.0.127",
+    "@vx/mock-data": "0.0.127",
+    "@vx/pattern": "0.0.127",
+    "@vx/responsive": "0.0.127",
+    "@vx/scale": "0.0.127",
+    "@vx/shape": "0.0.131",
+    "@vx/tooltip": "0.0.134",
+    "d3-array": "^1.2.0",
+    "d3-format": "^1.2.0",
+    "d3-time-format": "^2.0.5",
+    "graphql": "^0.11.0",
+    "graphql-tools": "^1.2.1",
+    "react": "^15.6.1",
+    "react-apollo": "^1.4.15",
+    "react-dom": "^15.6.1",
+    "react-router-dom": "^4.2.0",
+    "snyk": "^1.316.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
